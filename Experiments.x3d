@@ -32,20 +32,63 @@
 
     <Scene DEF='Scene'>
         <Group>
-            <Transform DEF='Cube'>
+            <!--
+            Name: Taidgh Murray
+            Student ID: 15315901
+            Course: 4BS2
+            Module: CT336
+            X3D project to design a treasure box with lock, that has an opening lid
+
+            <!-- Box-->
+            <Shape>
+                <Appearance>
+                        <ImageTexture
+                            url = 'wood-textures-high-quality-8.jpg'
+                        />
+                </Appearance>
+                <Extrusion
+                    DEF = 'BOX'
+                    beginCap = 'TRUE'
+                    endCap = 'FALSE'
+                    ccw = 'TRUE'
+                    convex = 'TRUE'
+                    creaseAngle = '0'
+                    crossSection = '2 1,  2 -1,  -2 -1,  -2 1,  2 1'
+                    solid = 'FALSE'
+                    spine = '0 0 0, 0 2 0'
+                    />
+            </Shape>
+
+            <!-- Lid -->
+            <Transform DEF = 'Lid'>
                 <Shape>
                     <Appearance>
-                        <Material/>
+                        <ImageTexture
+                            url = 'wood-textures-high-quality-8.jpg'
+                        />
                     </Appearance>
-                    <Box/>
+                    <Extrusion
+                        DEF = 'LID'
+                        creaseAngle = '2'
+                        crossSection='1 0, 0.92 -0.38, 0.71 -0.71, 0.38 -0.92, 0 -1, -0.38 -0.92, -0.71 -0.71, -0.92 -0.38, -1 0'
+                        solid = 'FALSE'
+                        spine = '-2 2 0, 2 2 0'
+                        scale = '1 1'
+                        orientation = '0 1 0, 1.5708'
+                    />
                 </Shape>
             </Transform>
-            <TouchSensor DEF = 'Touch'/>
-            <TimeSensor DEF = 'Clock' cycleInterval = '4'/>
-            <OrientationInterpolator DEF = 'CubePath' key = '0 0.5 1' keyValue = '0 1 0 0, 0 1 0 3.14, 0 1 0 6.28'/>
+            <TouchSensor DEF = 'Touch' />
+            <TimeSensor DEF = 'Clock' cycleInterval='1.8'/>
+            <OrientationInterpolator
+                DEF = 'LidOpen'
+                key = '0 0.5 1'
+                keyValue = '0 0 0 0, 0.3 0 0 -1.0472'
+
+            />
         </Group>
-        <ROUTE fromNode = 'Clock' fromField='fraction_changed' toNode = 'CubePath' toField='set_fraction'/>
+        <ROUTE fromNode = 'Clock' fromField='fraction_changed' toNode = 'LidOpen' toField='set_fraction'/>
         <ROUTE fromNode = 'Touch' fromField = 'touchTime' toNode = 'Clock' toField = 'set_startTime'/>
-        <ROUTE fromNode = 'CubePath' fromField = 'value_changed' toNode='Cube' toField='set_rotation'/>
+        <ROUTE fromNode = 'LidOpen' fromField = 'value_changed' toNode='Lid' toField='set_rotation'/>
     </Scene>
 </X3D>

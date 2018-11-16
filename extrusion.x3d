@@ -23,9 +23,15 @@
                   <Appearance>
                       <Material diffuseColor='0 0.7 1'/>
                   </Appearance>
-                <Extrusion creaseAngle='0.785' crossSection='1.00 0.00 0.92 -0.38 0.71 -0.71 0.38 -0.92 0.00 -1.00 -0.38 -0.92 -0.71 -0.71 -0.92 -0.38 -1.00 -0.00' solid='false' spine='0 -1 0 0 1 0'/>
-              </Shape>
-            </Scene>
+                <Extrusion
+                    convex='false'
+                    creaseAngle='0.785'
+                    crossSection='-0.5 1.0 -0.5 0.8 -1.8 0.8 -1.8 -0.8 1.8 -0.8 1.8 0.8 0.5 0.8 0.5 1.0 2.0 1.0 2.0 -1.0 -2.0 -1.0 -2.0 1.0 -0.5 1.0'
+                    solid='false'
+                    spine='0 0 0 0 2 0'
+                />
+            </Shape>
+        </Scene>
     </X3D>
 <!--
 Index for Viewpoint image : Viewpoint_1
