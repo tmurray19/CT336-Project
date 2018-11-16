@@ -49,9 +49,6 @@
                     />
                 </Shape>
             </Transform>
-            <TouchSensor DEF = 'Touch' />
-            <TimeSensor DEF = 'Clock' cycleInterval='1.8'/>
-            <OrientationInterpolator DEF = 'LidOpen' key = '0 0.5 1' keyValue = '1 0 0 0, 1 0 0 1.0472'/>
         </Group>
         <ROUTE fromNode = 'Clock' fromField='fraction_changed' toNode = 'LidOpen' toField='set_fraction'/>
         <ROUTE fromNode = 'Touch' fromField = 'touchTime' toNode = 'Clock' toField = 'set_startTime'/>
