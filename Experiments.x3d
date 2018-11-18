@@ -40,6 +40,9 @@
             X3D project to design a treasure box with lock, that has an opening lid
 
 
+            crossSection='1 0, 0.92 -0.38, 0.71 -0.71, 0.38 -0.92, 0 -1, -0.38 -0.92, -0.71 -0.71, -0.92 -0.38, -1 0'
+
+
             orientation = '0 1 0, 1.5708'
 
             <!-- Box-->
@@ -64,7 +67,8 @@
 
             <!-- Lid -->
             <Transform DEF = 'Lid'
-                translation = '0 -2 0'>
+                translation = '0 -2 0'
+                >
                 <Shape>
                     <Appearance>
                         <ImageTexture
@@ -83,12 +87,15 @@
                 </Shape>
             </Transform>
             <TouchSensor DEF = 'Touch' />
-            <TimeSensor DEF = 'Clock' cycleInterval='1.8'/>
+            <TimeSensor DEF = 'Clock' cycleInterval='1'/>
+
             <OrientationInterpolator
                 DEF = 'LidOpen'
-                key = '0 .33 .66'
-                keyValue = '5 0 0 0, 4.66 0 0 -1.0472'
+                key = '0 1'
+                keyValue = '0 0 0 0, 2 0 0 -1.0472'
             />
+
+
             <!-- Lock -->
             <Transform translation = '0 0 1.025'>
                 <Shape>
@@ -165,5 +172,6 @@
         <ROUTE fromNode = 'Clock' fromField='fraction_changed' toNode = 'LidOpen' toField='set_fraction'/>
         <ROUTE fromNode = 'Touch' fromField = 'touchTime' toNode = 'Clock' toField = 'set_startTime'/>
         <ROUTE fromNode = 'LidOpen' fromField = 'value_changed' toNode='Lid' toField='set_rotation'/>
+
     </Scene>
 </X3D>
