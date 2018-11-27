@@ -8,7 +8,21 @@
             Student ID: 15315901
             Course: 4BS2
             Module: CT336
-            X3D project to design a treasure box with lock, that has an opening lid
+
+
+            X3D Project worth 25% of the marks
+
+            I decided on a treasure chest / lock box with an opening/closing animation to show whats inside
+            Things to add:
+                    Box -> Extrusion to show insides
+                    Lid -> Extrusion - It's basically a semi circle
+                    Lock -> Box with texture
+                    Coins -> Cylinders
+
+                    Lighting
+
+                    Opening/Closing animation
+
             --->
 
             <!-- Box-->
